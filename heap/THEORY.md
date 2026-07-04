@@ -39,22 +39,9 @@ Signals in a problem statement: "kth largest/smallest", "top k", "merge k sorted
 - Key methods: `offer(x)` (insert), `poll()` (extract root), `peek()` (read root).
 
 ## Common sticking points
-- **The heap's generic type must match what you actually push into it.**
-  If you're inserting `Map.Entry<K,V>` objects (e.g. to heap-order by a
-  frequency/count rather than the raw value), the `PriorityQueue`'s type
-  parameter has to be `Map.Entry<K,V>` too — not `Map<K,V>`. Declaring it
-  as the outer `Map` type compiles as a heap of whole maps, and any field
-  access inside the comparator (`.getValue()`, `.getKey()`) will fail
-  since those methods don't exist on `Map`, only on `Map.Entry`.
-- **`PriorityQueue` has no indexed/random access.** No `get(i)`, no
-  `get()`. The only ways in and out are `offer()`/`add()` (insert),
-  `poll()` (remove + return root), and `peek()` (read root without
-  removing). To read all elements you have to iterate (for-each) or
-  drain it via repeated `poll()` — there's no "give me element k" call.
-- **Iteration order is not sorted order.** Iterating a `PriorityQueue`
-  with a for-each loop gives elements in internal array order, not
-  ascending/descending — only `poll()` guarantees you get them out in
-  heap order, one at a time.
+- Heap's generic type must match what you push in — `Entry<K,V>`, not `Map<K,V>`.
+- No indexed access (`get(i)` doesn't exist) — only `offer()`, `poll()`, `peek()`.
+- For-each iteration isn't sorted order — only `poll()` gives heap order.
 
 ## Practice log
 | # | Problem | Status |

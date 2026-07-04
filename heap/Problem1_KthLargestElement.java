@@ -5,26 +5,13 @@ import java.util.PriorityQueue;
 /**
  * Problem 1: Kth Largest Element in an Array
  *
- * Given an integer array nums and an integer k, return the kth largest
- * element in the array.
+ * Given an int array nums and int k, return the kth largest element
+ * (sorted order, not distinct).
  *
- * Note: it is the kth largest element in sorted order, not the kth
- * distinct element.
+ * Example: nums = [3,2,1,5,6,4], k = 2 -> 5
  *
- * Example 1:
- *   Input:  nums = [3,2,1,5,6,4], k = 2
- *   Output: 5
- *
- * Example 2:
- *   Input:  nums = [3,2,3,1,2,4,5,5,6], k = 4
- *   Output: 4
- *
- * Constraints:
- *   1 <= k <= nums.length <= 10^5
- *   -10^4 <= nums[i] <= 10^4
- *
- * Hint: think about which kind of heap (min or max) lets you track the
- * kth largest while only ever holding k elements at a time.
+ * Hint: which heap type lets you track the kth largest while only ever
+ * holding k elements?
  */
 public class Problem1_KthLargestElement {
 
@@ -53,16 +40,7 @@ public class Problem1_KthLargestElement {
     }
 
     /*
-     * Why this works: you keep a min-heap capped at size k. Any time it
-     * grows past k, you evict the smallest — so only the k largest
-     * elements seen so far ever survive in the heap. Once you've
-     * processed the whole array, the smallest of those k survivors (the
-     * heap's root) is exactly the kth largest overall.
-     *
-     * Complexity:
-     * - Time: O(n log k) — n insertions/removals, each O(log k) since the
-     *   heap never holds more than k elements. This beats the naive
-     *   full-sort approach (O(n log n)) when k is small.
-     * - Space: O(k).
+     * Min-heap capped at size k -> root is always the kth largest.
+     * Time: O(n log k). Space: O(k).
      */
 }

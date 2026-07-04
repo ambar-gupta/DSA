@@ -9,29 +9,13 @@ import java.util.PriorityQueue;
 /**
  * Problem 2: Top K Frequent Elements
  *
- * Given an integer array nums and an integer k, return the k most
- * frequent elements. You may return the answer in any order.
+ * Given an int array nums and int k, return the k most frequent elements
+ * (any order).
  *
- * Example 1:
- *   Input:  nums = [1,1,1,2,2,3], k = 2
- *   Output: [1,2]
+ * Example: nums = [1,1,1,2,2,3], k = 2 -> [1,2]
  *
- * Example 2:
- *   Input:  nums = [1], k = 1
- *   Output: [1]
- *
- * Constraints:
- *   1 <= nums.length <= 10^5
- *   k is in range [1, number of distinct elements in nums]
- *   It is guaranteed that the answer is unique.
- *
- * Hint: first build a frequency map (value -> count), then reuse the
- * same "min-heap capped at size k" pattern from Problem 1 — just ordered
- * by frequency instead of by value.
- *
- * Follow-up (optional, once the heap solution works): this can be done
- * in better than O(n log n) using bucket sort on frequency. Think about
- * why frequency values are bounded by nums.length.
+ * Hint: frequency map, then same min-heap-capped-at-k pattern as
+ * Problem 1, ordered by frequency instead of value.
  */
 public class Problem2_TopKFrequentElements {
 
@@ -76,16 +60,8 @@ public class Problem2_TopKFrequentElements {
     }
 
     /*
-     * Why this works: build a frequency map first (value -> count), then
-     * keep a min-heap of entries capped at size k, ordered by frequency
-     * (entry.getValue()). Any time the heap grows past k, the entry with
-     * the smallest frequency gets evicted — so only the k most frequent
-     * entries survive. Draining the heap at the end (entry.getKey())
-     * gives exactly the k most frequent values, in no particular order.
-     *
-     * Complexity:
-     * - Time: O(n log k) — n entries, each heap op (offer/poll) is
-     *   O(log k) since the heap never holds more than k elements.
-     * - Space: O(n) for the frequency map + O(k) for the heap.
+     * Frequency map, then min-heap of entries (by count) capped at k ->
+     * heap ends up holding the k most frequent entries.
+     * Time: O(n log k). Space: O(n) map + O(k) heap.
      */
 }
