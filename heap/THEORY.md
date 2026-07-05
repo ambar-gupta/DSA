@@ -42,9 +42,11 @@ Signals in a problem statement: "kth largest/smallest", "top k", "merge k sorted
 - Heap's generic type must match what you push in — `Entry<K,V>`, not `Map<K,V>`.
 - No indexed access (`get(i)` doesn't exist) — only `offer()`, `poll()`, `peek()`.
 - For-each iteration isn't sorted order — only `poll()` gives heap order.
+- Bounded-heap eviction is inverted: keep k *largest* → min-heap, evict smallest; keep k *smallest* → max-heap, evict largest.
 
 ## Practice log
 | # | Problem | Status |
 |---|---------|--------|
 | 1 | Kth Largest Element in an Array | Solved |
 | 2 | Top K Frequent Elements | Solved |
+| 3 | K Closest Points to Origin | Solved |
