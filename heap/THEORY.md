@@ -50,3 +50,4 @@ Signals in a problem statement: "kth largest/smallest", "top k", "merge k sorted
 | 1 | Kth Largest Element in an Array | Solved |
 | 2 | Top K Frequent Elements | Solved |
 | 3 | K Closest Points to Origin | Solved |
+| 4 | Find Median from Data Stream | Solved |
